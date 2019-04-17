@@ -1,3 +1,10 @@
+import Todo from "../models/todos";
+import mongoose from "mongoose";
+
 export default async ctx => {
-  ctx.body = `id = ${ctx.params.id}`;
+  const todo = await Todo.findById(mongoose.Types.ObjectId(ctx.params.id));
+
+  if (!todo) ctx.throw(404);
+
+  ctx.body = await todo.remove();
 };

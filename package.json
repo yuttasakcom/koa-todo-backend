@@ -12,7 +12,8 @@
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.5.2"
+    "mongoose": "^5.5.2",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
