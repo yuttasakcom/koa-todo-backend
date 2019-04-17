@@ -10,5 +10,5 @@
 - Babel
 - Jest
 - Gitlab CI/CD, Registry
-- Docker, Docker Compose
+- Docker, Docker Compose, Dockerfile
 - Nginx
