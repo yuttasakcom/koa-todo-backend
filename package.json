@@ -4,5 +4,18 @@
   "main": "index.js",
   "repository": "git@github.com:yuttasakcom/koa-todo-backend.git",
   "author": "Yuttasak Pannawat <yuttasakcom@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js --exec babel-node"
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "nodemon": "^1.18.11"
+  }
 }
