@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    volumes:
+      - db_mongo:/data/db
+    ports:
+      - "27017:27017"
+    restart: always
+
+volumes:
+  db_mongo:

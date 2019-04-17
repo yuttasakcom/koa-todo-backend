@@ -1,3 +1,6 @@
+import Todo from "../models/todos";
+
 export default async ctx => {
-  ctx.body = `todo = ${ctx.request.body.todo}`;
+  const todo = new Todo({ todo: ctx.request.body.todo });
+  ctx.body = await todo.save();
 };
