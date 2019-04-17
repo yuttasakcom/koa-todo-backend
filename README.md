@@ -9,7 +9,6 @@
 - Bcrypt
 - Babel
 - Jest
-- Docker
 - Gitlab CI/CD, Registry
-- Docker
+- Docker, Docker Compose
 - Nginx
