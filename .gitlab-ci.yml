@@ -1,7 +1,7 @@
 stages:
   # - test
-  - build
-  # - production
+  # - build
+  - production
 
 # test:
 #   image: node:latest
@@ -19,29 +19,30 @@ stages:
 #   tags:
 #     - docker
 
-build:
-  image: docker:latest
-  stage: build
-  only:
-    - master
-  script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE
-    - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:latest
-  tags:
-    - docker
-# production:
-#   type: deploy
-#   stage: production
-#   image: ruby:latest
-#   script:
-#     - apt-get update -qy
-#     - apt-get install -y ruby-dev
-#     - gem install dpl
-#     - dpl --provider=heroku --app=node-heroku-dpl --api-key=$HEROKU_API_KEY
+# build:
+#   image: docker:latest
+#   stage: build
 #   only:
 #     - master
+#   script:
+#     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE .
+#     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE
+#     - docker build -t $CI_REGISTRY_IMAGE:latest .
+#     - docker push $CI_REGISTRY_IMAGE:latest
 #   tags:
 #     - docker
+
+production:
+  type: deploy
+  stage: production
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=node-heroku-dpl --api-key=$HEROKU_API_KEY
+  only:
+    - develop
+  tags:
+    - docker
