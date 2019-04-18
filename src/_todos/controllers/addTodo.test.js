@@ -5,7 +5,7 @@ import addTodoController from "./addTodo";
 jest.mock("../models/todos", () => {
   const doc = {
     _id: "5cb834b2d3632b5c51adaf5e",
-    todo: "Koa",
+    text: "Koa",
   };
   return {
     create: jest.fn(() => Promise.resolve(doc)),
@@ -14,14 +14,14 @@ jest.mock("../models/todos", () => {
 
 describe("_todos/controllers", () => {
   test("addTodo", async () => {
-    const todo = "Koa";
-    const ctx = { request: { body: { todo } } };
+    const text = "Koa";
+    const ctx = { request: { body: { text } } };
 
     await addTodoController(ctx);
 
     expect(ctx.body).toMatchObject({
       _id: "5cb834b2d3632b5c51adaf5e",
-      todo,
+      text,
     });
   });
 });

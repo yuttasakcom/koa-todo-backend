@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 const TodoSchema = new Schema({
-  todo: {
+  text: {
     type: String,
     required: true,
   },
