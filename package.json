@@ -1,0 +1,39 @@
+{
+  "name": "koa-todo-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:yuttasakcom/koa-todo-backend.git",
+  "author": "Yuttasak Pannawat <yuttasakcom@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js --exec babel-node",
+    "test": "env-cmd ./.env.test jest --watch --runInBand",
+    "test-ci": "jest --runInBand --forceExit",
+    "coverage": "jest --runInBand --coverage --forceExit",
+    "build": "babel src -d build --source-map",
+    "start": "node build/index.js",
+    "heroku-postbuild": "npm start"
+  },
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.5.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "env-cmd": "^8.0.2",
+    "jest": "^24.7.1",
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2"
+  }
+}
