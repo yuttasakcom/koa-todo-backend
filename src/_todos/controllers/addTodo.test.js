@@ -28,7 +28,7 @@ describe("_todos/controllers", () => {
     });
   });
 
-  test("addTodo fail required text", async () => {
+  test("addTodo fail text required", async () => {
     const ctx = {
       request: { body: { text: "" } },
       throw: (code, message) => {
