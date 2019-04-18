@@ -5,8 +5,6 @@
 - Koa
 - Mongo, Mongoose
 - Redis
-- Jsonwebtoken
-- Bcrypt
 - Babel
 - Jest
 - Gitlab CI/CD, Registry
