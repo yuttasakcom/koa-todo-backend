@@ -4,7 +4,7 @@ import addTodoController from "./addTodo";
 jest.mock("../models/todos", () => {
   const doc = {
     _id: "5cb834b2d3632b5c51adaf5e",
-    text: "Koa",
+    text: "unit test Koa",
   };
   return {
     create: jest.fn(() => Promise.resolve(doc)),
@@ -17,7 +17,7 @@ describe("_todos/controllers", () => {
   });
 
   test("addTodo success", async () => {
-    const text = "Koa";
+    const text = "unit test Koa";
     const ctx = { request: { body: { text } } };
 
     await addTodoController(ctx);

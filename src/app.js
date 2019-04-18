@@ -9,7 +9,7 @@ mongoose
   .connect(process.env.MONGO_URI || "mongodb://localhost:27017/koa", {
     useNewUrlParser: true,
   })
-  .then(() => console.log("Mongodb connected."))
+  .then(() => console.log(`Mongodb connected `, process.env.MONGO_URI))
   .catch(err => {
     console.log(`Mongodb not connect `, err);
   });
