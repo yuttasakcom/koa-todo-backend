@@ -12,8 +12,12 @@ jest.mock("../models/todos", () => {
   };
 });
 
+async function throws() {
+  throw new Error("text required");
+}
+
 describe("_todos/controllers", () => {
-  test("addTodo", async () => {
+  test("addTodo success", async () => {
     const text = "Koa";
     const ctx = { request: { body: { text } } };
 
@@ -22,6 +26,22 @@ describe("_todos/controllers", () => {
     expect(ctx.body).toMatchObject({
       _id: "5cb834b2d3632b5c51adaf5e",
       text,
+    });
+  });
+
+  test("addTodo fail required text", async () => {
+    const ctx = {
+      request: { body: { text: "" } },
+      throw: (code, message) => {
+        return { code, message };
+      },
+    };
+
+    await addTodoController(ctx);
+
+    expect(ctx.throw(400, "text required")).toMatchObject({
+      code: 400,
+      message: "text required",
     });
   });
 });
