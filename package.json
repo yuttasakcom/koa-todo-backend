@@ -12,7 +12,7 @@
     "coverage": "jest --runInBand --coverage --forceExit",
     "build": "babel src -d build --source-map",
     "start": "node build/index.js",
-    "heroku-postbuild": "npm start"
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "8.1.1",
