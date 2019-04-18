@@ -1,37 +1,37 @@
 stages:
-  - test
-  - build
+  # - test
+  # - build
   - production
 
-test:
-  image: node:latest
-  cache:
-    paths:
-      - node_modules/
-  stage: test
-  script:
-    - npm install
-    - npm run test-ci
-    - npm run coverage
-  only:
-    - develop
-    - master
-  tags:
-    - docker
+# test:
+#   image: node:latest
+#   cache:
+#     paths:
+#       - node_modules/
+#   stage: test
+#   script:
+#     - npm install
+#     - npm run test-ci
+#     - npm run coverage
+#   only:
+#     - develop
+#     - master
+#   tags:
+#     - docker
 
-build:
-  image: docker:latest
-  stage: build
-  only:
-    - master
-  script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE
-    - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:latest
-  tags:
-    - docker
+# build:
+#   image: docker:latest
+#   stage: build
+#   only:
+#     - master
+#   script:
+#     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE .
+#     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_MESSAGE
+#     - docker build -t $CI_REGISTRY_IMAGE:latest .
+#     - docker push $CI_REGISTRY_IMAGE:latest
+#   tags:
+#     - docker
 
 production:
   type: deploy
@@ -43,6 +43,6 @@ production:
     - gem install dpl
     - dpl --provider=heroku --app=koa-todo-backend --api-key=$HEROKU_API_KEY
   only:
-    - master
+    - develop
   tags:
     - docker
