@@ -1,11 +1,18 @@
 stages:
   - test
 
-test:
-  image: node:stable
+testing:
+  image: node:latest
+  cache:
+    paths:
+      - node_modules/
   stage: test
   script:
     - npm install
     - npm run test-ci
+    - npm run coverage
+  only:
+    - develop
+    - master
   tags:
     - docker
