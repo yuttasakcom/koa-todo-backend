@@ -12,7 +12,7 @@ afterEach(() => {
 });
 
 describe("_todos", () => {
-  test("addTodo success", async () => {
+  it("addTodo success", async () => {
     const text = "integration Koa";
     const response = await request(server)
       .post("/api/todos")
@@ -25,7 +25,7 @@ describe("_todos", () => {
     );
   });
 
-  test("addTodo fail text required", async () => {
+  it("addTodo fail text required", async () => {
     const response = await request(server).post("/api/todos");
     expect(response.status).toBe(400);
     expect(response.type).toBe("text/plain");

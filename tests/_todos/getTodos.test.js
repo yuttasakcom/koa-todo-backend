@@ -25,7 +25,7 @@ afterEach(() => {
 });
 
 describe("_todos", () => {
-  test("getTodos success", async () => {
+  it("getTodos success", async () => {
     const response = await request(server).get("/api/todos");
     expect(response.status).toEqual(200);
     expect(response.type).toEqual("application/json");

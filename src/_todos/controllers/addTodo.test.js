@@ -16,7 +16,7 @@ describe("_todos/controllers", () => {
     jest.restoreAllMocks();
   });
 
-  test("addTodo success", async () => {
+  it("addTodo success", async () => {
     const text = "unit test Koa";
     const ctx = { request: { body: { text } } };
 
@@ -28,7 +28,7 @@ describe("_todos/controllers", () => {
     });
   });
 
-  test("addTodo fail text required", async () => {
+  it("addTodo fail text required", async () => {
     const ctx = {
       request: { body: { text: "" } },
       throw: (code, message) => {
