@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
-    "test": "env-cmd ./.env.test jest --watch",
-    "test-ci": "jest",
+    "test": "env-cmd ./.env.test jest --watch --runInBand",
+    "test-ci": "jest --runInBand --forceExit",
     "coverage": "jest --coverage",
     "build": "babel src -d build --source-map"
   },

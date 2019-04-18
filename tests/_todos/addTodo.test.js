@@ -1,6 +1,12 @@
 import request from "supertest";
 import server from "../../src";
 
+import Todo from "../../src/_todos/models/todos";
+
+beforeEach(async () => {
+  await Todo.deleteMany();
+});
+
 afterEach(() => {
   server.close();
 });
@@ -11,11 +17,18 @@ describe("_todos", () => {
     const response = await request(server)
       .post("/api/todos")
       .send({ text });
-    expect(response.status).toEqual(200);
-    expect(response.type).toEqual("application/json");
-    expect(response.body.text).toEqual(text);
+    expect(response.status).toBe(200);
+    expect(response.type).toBe("application/json");
+    expect(response.body.text).toBe(text);
     expect(Object.keys(response.body)).toEqual(
       expect.arrayContaining(["_id", "text"])
     );
+  });
+
+  test("addTodo fail text required", async () => {
+    const response = await request(server).post("/api/todos");
+    expect(response.status).toBe(400);
+    expect(response.type).toBe("text/plain");
+    expect(response.text).toBe("text required");
   });
 });
