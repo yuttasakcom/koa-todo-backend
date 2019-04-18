@@ -8,7 +8,14 @@ services:
       - db_mongo:/data/db
     ports:
       - "27017:27017"
+    networks:
+      - dev-net
     restart: always
 
 volumes:
   db_mongo:
+
+networks:
+  dev-net:
+    external:
+      name: "development"
