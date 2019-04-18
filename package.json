@@ -10,7 +10,8 @@
     "test": "env-cmd ./.env.test jest --watch --runInBand",
     "test-ci": "jest --runInBand --forceExit",
     "coverage": "jest --coverage",
-    "build": "babel src -d build --source-map"
+    "build": "babel src -d build --source-map",
+    "start": "node build/index.js"
   },
   "dependencies": {
     "koa": "^2.7.0",
