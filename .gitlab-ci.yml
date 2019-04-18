@@ -2,6 +2,7 @@ stages:
   - test
 
 test:
+  image: node:stable
   stage: test
   script:
     - npm install
