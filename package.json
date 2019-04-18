@@ -9,16 +9,17 @@
     "dev": "nodemon src/index.js --exec babel-node",
     "test": "jest --watch",
     "test-ci": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "build": "babel src -d build --source-map"
   },
   "dependencies": {
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.5.2",
-    "yup": "^0.27.0"
+    "mongoose": "^5.5.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.4.3",
