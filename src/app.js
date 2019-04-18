@@ -12,7 +12,7 @@ mongoose
   })
   .then(() => console.log(`Mongodb connected `, process.env.MONGO_URI))
   .catch(err => {
-    console.log(`Mongodb not connect `, err);
+    console.log(`Mongodb not connect ${process.env.MONGO_URI}`, err);
   });
 
 const app = new Koa();
