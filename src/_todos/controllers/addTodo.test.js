@@ -1,5 +1,4 @@
 import "@babel/polyfill";
-
 import addTodoController from "./addTodo";
 
 jest.mock("../models/todos", () => {
@@ -12,11 +11,11 @@ jest.mock("../models/todos", () => {
   };
 });
 
-async function throws() {
-  throw new Error("text required");
-}
-
 describe("_todos/controllers", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   test("addTodo success", async () => {
     const text = "Koa";
     const ctx = { request: { body: { text } } };
