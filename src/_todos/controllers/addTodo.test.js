@@ -12,13 +12,16 @@ jest.mock("../models/todos", () => {
   };
 });
 
-test("_todos/controllers/addTodo", async () => {
-  const ctx = { request: { body: { todo: "Koa" } } };
+describe("_todos/controllers", () => {
+  test("addTodo", async () => {
+    const todo = "Koa";
+    const ctx = { request: { body: { todo } } };
 
-  await addTodoController(ctx);
+    await addTodoController(ctx);
 
-  expect(ctx.body).toMatchObject({
-    _id: "5cb834b2d3632b5c51adaf5e",
-    todo: "Koa",
+    expect(ctx.body).toMatchObject({
+      _id: "5cb834b2d3632b5c51adaf5e",
+      todo,
+    });
   });
 });
