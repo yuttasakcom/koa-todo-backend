@@ -12,6 +12,21 @@ services:
       - dev-net
     restart: always
 
+  api:
+    build: .
+    container_name: api
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/koa
+    networks:
+      - dev-net
+    logging:
+      options:
+        max-size: 10m
+        max-file: "10"
+    restart: always
+
 volumes:
   db_mongo:
 

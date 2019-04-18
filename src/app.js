@@ -1,6 +1,7 @@
 import "@babel/polyfill";
 import Koa from "koa";
 import bodyParser from "koa-bodyparser";
+import logger from "koa-logger";
 import mongoose from "mongoose";
 import routes from "./routes";
 
@@ -17,6 +18,7 @@ mongoose
 const app = new Koa();
 
 app.use(bodyParser());
+app.use(logger());
 app.use(routes.routes());
 app.use(routes.allowedMethods());
 
