@@ -15,21 +15,24 @@
     "heroku-postbuild": "npm run build"
   },
   "engines": {
-    "node": "10.3.0",
+    "node": "10.15.3",
     "npm": "5.0.3"
   },
   "dependencies": {
+    "env-cmd": "^8.0.2",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.1.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "mongoose": "^5.5.2",
+    "mongoose": "^5.5.2"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "env-cmd": "^8.0.2",
     "jest": "^24.7.1",
     "nodemon": "^1.18.11",
     "supertest": "^4.0.2"

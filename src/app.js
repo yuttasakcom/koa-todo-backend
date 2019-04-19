@@ -1,5 +1,6 @@
 import "@babel/polyfill";
 import Koa from "koa";
+import helmet from "koa-helmet";
 import bodyParser from "koa-bodyparser";
 import logger from "koa-logger";
 import mongoose from "mongoose";
@@ -16,7 +17,7 @@ mongoose
   });
 
 const app = new Koa();
-
+app.use(helmet());
 app.use(bodyParser());
 app.use(logger());
 app.use(routes.routes());
