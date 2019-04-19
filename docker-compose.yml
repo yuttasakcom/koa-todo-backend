@@ -19,6 +19,8 @@ services:
       - "6379:6379"
     volumes:
       - db_redis:/data
+    networks:
+      - dev-net
     restart: always
 
   api:
