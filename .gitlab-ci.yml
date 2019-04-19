@@ -32,6 +32,7 @@ build:
     - docker push $CI_REGISTRY_IMAGE:latest
   tags:
     - docker
+
 production:
   type: deploy
   stage: production
