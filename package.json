@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
     "test": "env-cmd ./.env.test jest --watch --runInBand",
-    "test-ci": "jest --runInBand --forceExit",
+    "test-ci": "jest --runInBand --forceExit --detectOpenHandles",
     "coverage": "jest --runInBand --coverage --forceExit",
     "build": "babel src -d build --source-map",
     "start": "node build/index.js",
